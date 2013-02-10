@@ -1,5 +1,3 @@
-[![Build Status](NOTE: Use something like Travis CI http://about.travis-ci.org/docs/user/getting-started/)
-
 # MediaFunnel
 
 MediaFunnel acts as a media aggregator, collecting [magnet links](http://en.wikipedia.org/wiki/Magnet_URI_scheme) from the public and exposing them as a [syndicated feed](http://en.wikipedia.org/wiki/Web_syndication) for applications to consume.
