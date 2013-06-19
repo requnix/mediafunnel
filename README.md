@@ -2,15 +2,13 @@
 
 MediaFunnel acts as a media aggregator, collecting [magnet links](http://en.wikipedia.org/wiki/Magnet_URI_scheme) from the public and exposing them as a [syndicated feed](http://en.wikipedia.org/wiki/Web_syndication) for applications to consume.
 
-It is built with [Meteor](http://meteor.com) and can be used as a non-trivial example of an application implemented in Meteor.
-
 ### Installation and usage
 
-If you simply want to use the application it can be accessed at [https://mediafunnel.tv](https://mediafunnel.tv).
+If you simply want to use the application it can be accessed at [http://mediafunnel.tv](http://mediafunnel.tv).
 
 If you want to have a look at the source and see how things work you can clone the repository with `git clone git@github.com:requnix/mediafunnel.git` or [browse the code online](https://github.com/requnix/mediafunnel).
 
-In order to run the application you will have to [install node and npm](http://joyent.com/blog/installing-node-and-npm) and then install [Meteorite](https://github.com/oortcloud/meteorite). Once this is done you can navigate to the mediafunnel folder and run the application with `mrt run`. This will make the application available at [http://localhost:3000](http://localhost:3000).
+If you want to run the application it is a standard Rails 3 application using [Bundler](http://gembundler.com).
 
 ### Troubleshooting
 
