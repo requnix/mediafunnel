@@ -1,0 +1,64 @@
+<div class="container" id="shows">
+  <%= image_tag @show.images['banner'], width: '100%'%>
+  <%- if @show.images['banner'] == 'http://slurm.trakt.us/images/banner.jpg' -%>
+  <span class="show-title"><%= @show.title %></span>
+  <%- end -%>
+
+  <%- if @user.subscriptions.any? { |sub| sub.show == @show } -%>
+    <%- subscription = @user.subscriptions.find_by(show_id: @show._id) -%>
+    <p>
+      You subscribe to this show in <%= subscription.resolution %> <%= subscription.source %>.
+      <%= link_to 'Unsubscribe', subscription_path(subscription), method: :delete %>
+    </p>
+  <%- else -%>
+    <%= form_for Subscription.new(show: @show) do |f| %>
+      <%= f.hidden_field :show_id, value: @show._id %>
+      <div class="left-align-container show">
+        <div class="inputs source">
+          <%= f.label :source %>
+          <%= f.select :source, ['HDTV', 'WEB-DL', 'BluRay'] %>
+        </div>
+
+        <div class="inputs">
+          <%= f.label :resolution %>
+          <%= f.select :resolution, ['480p', '720p', '1080p'] %>
+        </div>
+
+        <div class="inputs">
+          <%= f.submit 'Add to subscriptions', class: 'button subscribe' %>
+        </div>
+      </div>
+    <% end %>
+  <%- end -%>
+  <p>
+    <%= link_to show_feed_path(@show.slug, format: :rss, resolution: '720p', source: 'WEB-DL'), class: 'rss' do %>
+      <i class="icon-rss"></i> 720p WEB-DL
+    <% end %>
+
+    <%= link_to show_feed_path(@show.slug, format: :rss), class: 'rss' do %>
+      <i class="icon-rss"></i> 480p HDTV
+    <% end %>
+  </p>
+
+  <p><%= link_to 'View on Trakt', @show.trakt if @show.trakt? %></p>
+  <p class="genres">Genres: <%= @show.genres.join ', ' %></p>
+  <p><%= @show.overview %></p>
+
+  <fieldset><legend>Episodes</legend>
+
+    <table class="pure-table pure-table-horizontal pure-table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+    <%- @show.episodes.each do |episode| -%>
+      <tr>
+        <td><%= '%02d' % episode.season %>x<%= '%02d' % episode.number %></td>
+        <td><%= episode.title %></td>
+      </tr>
+    <%- end -%>
+    </table>
+  </fieldset>
+</div>

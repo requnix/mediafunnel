@@ -1,0 +1,36 @@
+<div id="shows">
+  <div class="page-banner">
+    <div class="container">
+      <h1><i class="icon-circle-arrow-right"></i> Shows</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <form class="filter">
+        <label>Filter by Genre:</label>
+        <%= select_tag :show_genre, options_for_select(@genres.collect, selected: params[:genre]), onchange: 'window.filterShows()' %>
+    </form>
+  </div>
+
+  <div class="container">
+    <%- @shows.each do |show| -%>
+    <div class="grid-show">
+      <div class="poster">
+        <img src="<%= show.images['poster'] %>" />
+      </div>
+      <div class="details">
+        <h4><%= link_to show.title, show_path(show.slug) %></h4>
+      </div>
+    </div>
+    <%- end -%>
+  </div>
+
+  <div class="container">
+    <div class='paginate'>
+      <div class="paginate info">
+        <%= page_entries_info @shows %>
+      </div>
+      <%= will_paginate @shows %>
+    </div>
+  </div>
+</div>

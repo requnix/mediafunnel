@@ -1,0 +1,28 @@
+<div class="left-align-container">
+  <%= form_for @user, html: { class: 'user-form' } do |f| %>
+    <fieldset>
+      <legend>Update Profile</legend>
+      <div class="form-elements">
+        <%= f.label :username, "Username" %>
+        <%= f.text_field :username,required: true %>
+      </div>
+
+      <div class="form-elements">
+        <%= f.label :email, "Email" %>
+        <%= f.text_field :email,required: true %>
+      </div>
+      <div class="form-elements">
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="form-elements">
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+       <div class="submit-button">
+        <button type="submit" class="button button-big">Update Profile</button>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

@@ -1,0 +1,83 @@
+<div id="releases">
+  <div class="page-banner">
+    <div class="container">
+      <h1><i class="icon-circle-arrow-right"></i> Latest Releases</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <%= form_for @release, html: { class: 'add-release-form' } do |f| %>
+      <%= f.hidden_field :releasable_type, value: 'Episode' %>
+      <fieldset>
+        <legend>Add a Release</legend>
+        <% if @release.errors.any? %>
+          <div class="errors">
+            <%= @release.errors.full_messages.to_sentence %>
+          </div>
+        <% end %>
+
+        <div class="left-align-container">
+          <div class="show-box">
+            <%= label_tag :show_slug, "Show" %><br>
+            <%= select_tag :show_slug, options_from_collection_for_select(Show.order_by(title: :asc), :slug, :title), prompt: "Select a show", required: true, onchange: 'window.getEpisodes()' %>
+          </div>
+
+          <div class="episode-select">
+            <%= f.label :releasable_id, "Episode" %><br>
+            <%= f.select :releasable_id, [], prompt: "First select a show...", required: true %>
+          </div>
+
+          <div class="inputs">
+            <%= f.label :resolution %><br>
+            <%= f.select :resolution, ['480p', '720p', '1080p'] %>
+          </div>
+
+          <div class="inputs">
+            <%= f.label :source %><br>
+            <%= f.select :source, ['HDTV', 'WEB-DL', 'BluRay'] %>
+          </div>
+
+          <div class="inputs">
+            <%= f.label :group %><br>
+            <%= f.text_field :group %>
+          </div>
+
+          <div class="magnet-link">
+            <%= f.label :magnet, 'Magnet Link' %>
+            <%= f.text_area :magnet, cols: '80', rows: '4', required: true %>
+          </div>
+
+          <div class="submit-button">
+            <button type="submit" class="button">Create</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <fieldset>
+      <legend>List to Download</legend>
+      <table class="release-table">
+        <thead><tr>
+          <th>Title</th>
+          <th>Details</th>
+          <th>Download</th>
+          <th>Added</th>
+        </tr></thead>
+        <tbody>
+          <%- @releases.each do |release| -%>
+          <tr class="release">
+            <td><%= link_to release.releasable.identifier, show_path(release.releasable.show.slug) if release.releasable %></td>
+            <td>
+              <span class="resolution"><%= release.resolution %></span>
+              <span class="source"><%= release.source %></span>
+              <span class="group"><%= release.group %></span>
+            </td>
+            <td><i class="icon-magnet"></i> <%= link_to 'Magnet', release.magnet %></td>
+            <td><%= time_ago_in_words release.created_at %> ago</td>
+          </tr>
+          <%- end -%>
+        </tbody>
+      </table>
+    </fieldset>
+  </div>
+</div>

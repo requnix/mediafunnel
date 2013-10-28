@@ -1,0 +1,70 @@
+/*
+ * -- MENU STYLES --
+ * Make the menu have a very faint box-shadow.
+ */
+.logo {
+  margin-right: 2.35765%;
+  width: 27.70196%;
+  margin-top: 0px;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+  span {
+    background: asset-data-url('logo-small.png') no-repeat center;
+    display: inline-block;
+    height: 45px;
+    width: 220px;
+    text-indent: -9999px;
+  }
+}
+
+.pull-right {
+  padding-right: 20px !important;
+  float: right;
+}
+
+// Nav
+.menu {
+  height: 50px;
+  margin-top: 17px;
+  margin-bottom: 3em;
+}
+
+.menu-bar {
+  list-style-type: none;
+  padding: 0;
+  li {
+    display: inline-table;
+    padding: 20px 20px 20px 0;
+    margin-top: 17px
+  }
+  .menu-heading {
+    margin-right: 80px;
+  }
+}
+
+.toggle:after {
+  background: #323f47 !important;
+}
+
+#menu form input {
+  position:relative;
+  top: 0px;
+}
+
+.sign-in {
+  line-height: 5px;
+}
+
+.header {
+  .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+

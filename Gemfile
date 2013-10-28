@@ -1,21 +1,28 @@
+source 'https://rubygems.org'
 ruby '2.0.0'
 
-source 'https://rubygems.org'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'pg'
+# Use MongoDB as the ORM for Active Record
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson_ext'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'sass-rails', '~> 4.0.0'
+gem 'neat'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+gem 'simple_form'
+gem 'will_paginate_mongoid'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,11 +37,18 @@ gem 'turbolinks'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
 
+# Use Capistrano for deployment
+gem 'capistrano', group: :development
 
+# Developer Support
 gem 'pry', group: [:development, :test]
-gem 'rspec'
+gem 'better_errors', group: :development
+
+# Third-party APIs
+gem 'trakt'
+gem 'awesome_print'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

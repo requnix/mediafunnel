@@ -1,0 +1,22 @@
+<nav id="menu">
+  <ul class="menu menu-bar">
+    <span class="logo"><a href="/"><span>MediaFunnel</span></a></span>
+    <li ><%= link_to 'Home', root_path %></li>
+    <li ><%= link_to 'Shows', shows_path %></li>
+    <li ><%= link_to 'Releases', releases_path %></li>
+    <li ><%= link_to 'Subscriptions', subscriptions_path %></li>
+
+    <%- if @user -%>
+      <li class="pull-right"><%= link_to 'Logout', sign_out_users_path %></li>
+      <li class="pull-right"><%= link_to @user.username, edit_user_path(@user) %></li>
+    <%- else -%>
+      <li class="login-form pull-right">
+        <%= form_for User.new, url: sign_in_users_path, html: { :class => 'pure-form' }  do |f| %>
+          <%= f.text_field :email, placeholder: "Email" %>
+          <%= f.password_field :password, placeholder: "Password" %>
+          <%= f.submit 'Sign In', :class=> 'button sign-in' %>
+        <% end %>
+      </li>
+    <%- end -%>
+  </ul>
+</nav>

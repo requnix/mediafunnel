@@ -1,0 +1,119 @@
+form {
+  background-color: $dark-grey;
+
+  legend { padding-top:20px; }
+}
+
+.button {
+  width: 75px;
+  height: 25px;
+  @include button(simple, $dark-blue);
+  border-radius: 4px;
+  color: $grey;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+
+  &.subscribe {
+    text-align: center;
+    width: 165px;
+  }
+}
+
+.button-big {
+  width: 150px;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border: 1px solid $grey;
+  border-radius: 4px;
+  height: 2em;
+  box-shadow: 1px 1px 2px #999;
+  outline: none;
+}
+
+textarea#release_magnet {
+  width: 100%
+}
+
+.add-release-form {
+  margin-bottom: 40px;
+}
+
+.user-form {
+  margin-top: 40px;
+}
+
+form {
+  background-color: #f3f4f4;
+}
+
+fieldset {
+  border: none;
+}
+.filter {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $red;
+  label {
+
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #262d47;
+    font-weight: 800;
+
+  }
+}
+legend {
+  padding-bottom: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #262d47;
+  font-weight: 800;
+  border-bottom: 1px solid $red
+}
+
+.left-align-container {
+  @include span-columns(12);
+  background-color: #f3f4f4;
+  .show-box {
+    @include span-columns(6 of 12);
+  }
+  &.show {
+    padding: 0.5em;
+    padding-bottom: 0em;
+  }
+  .episode-select {
+    @include omega();
+  }
+  .inputs {
+    @include span-columns(3 of 12);
+
+    &.source {
+    }
+
+    &.resolution {
+    }
+  }
+  .magnet-link {
+    @include span-columns(12);
+  }
+  .submit-button {
+    @include span-columns(12);
+  }
+  .form-elements {
+    @include span-columns(6);
+    label {
+      @include span-columns(3 of 6);
+    }
+    input[type=text], input[type=password] {
+      @include span-columns(3 of 6);
+      @include omega();
+    }
+  }
+  div {
+    padding-bottom: 10px;
+  }
+}

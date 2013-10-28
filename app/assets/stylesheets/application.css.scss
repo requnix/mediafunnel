@@ -1,0 +1,92 @@
+$red: #F20606;
+$dark-blue: #262D47;
+$grey: #F2F2F2;
+$lime-green: #CCE538;
+$dark-grey: #C0C0C0;
+
+@import "bourbon";
+@import "neat";
+
+@import "navigation";
+@import "landing";
+@import "footer";
+@import "forms";
+@import "tables";
+@import "pagination";
+
+@import "shows";
+@import "releases";
+@import "subscriptions";
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 46px;
+  font-weight: 700;
+  color: $grey;
+}
+
+h2, h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.25em;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: $red;
+  }
+}
+
+p, a {
+  font-size: 14px;
+  color: $dark-blue;
+  font-weight: 200;
+}
+.container {
+  @include outer-container;
+}
+
+.color-line-header, .color-line-footer {
+  clear: both;
+  background: asset-data-url("color-line-footer.png") no-repeat center;
+  height: 5px;
+  width: 100%;
+}
+
+.page-banner {
+  margin-bottom: 40px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  .container { min-height: 250px; }
+
+  h1 {
+    display: inline-block;
+    padding-top: 50px;
+    color: white;
+    text-indent: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid white;
+
+    i { color: $lime-green; }
+  }
+}
+
+.rss {
+  @include button(simple, #FF8615);
+  font-size: 0.8em;
+  font-weight: 400;
+
+  &:hover {
+    color: $grey;
+  }
+}
+select {
+  outline: none;
+}
+

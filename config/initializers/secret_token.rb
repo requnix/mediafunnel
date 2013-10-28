@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mediafunnel::Application.config.secret_key_base = '93a167d86e636ac7ff26f1d39ac71933dcfc4229756b85bffb9ac976813cca3c2a364f8444db9167c8f5afa226c5a5b6a7c99eff70dfd0c211be1215d6eea184'
+Mediafunnel::Application.config.secret_key_base = ENV['MEDIAFUNNEL_SECRET'] || '834f449f19f66fa9997954772a2a19119541b7d5e5f7ff9c62f0847b0b4701e83483b359ce91bd2dacd42c3bf69f4f0947b50795c21ea3d2b6343472c2937c19'

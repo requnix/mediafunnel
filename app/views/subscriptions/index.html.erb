@@ -1,0 +1,38 @@
+<div id="subscriptions">
+  <div class="page-banner">
+    <div class="container">
+      <h1><i class="icon-circle-arrow-right"></i> Your Subscriptions</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <fieldset>
+      <legend>
+        Your Personalized Feed
+        <%= link_to user_feed_url(@user._id, format: :rss), class: 'rss' do %>
+          <i class="icon-rss"></i> Subscribe
+        <% end %>
+      </legend>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Show</th>
+            <th>Conditions</th>
+            <th></th>
+          </tr>
+        </thead>
+      <%- @subscriptions.each do |subscription| -%>
+        <tr>
+          <td><%= link_to subscription.show.title, show_path(subscription.show.slug) %></td>
+          <td>
+            <span class="tag"><%= subscription.resolution %></span>
+            <span class="tag"><%= subscription.source %></span>
+          </td>
+          <td><%= link_to 'Unsubscribe', subscription_path(subscription), method: :delete %></td>
+        </tr>
+      <%- end -%>
+      </table>
+    </fieldset>
+  </div>
+</div>

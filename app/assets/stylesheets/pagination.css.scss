@@ -1,0 +1,32 @@
+.paginate {
+  text-align: center;
+  background-color: $grey;
+  font-size: 14px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding-top: 0.5em;
+  padding-bottom: 1.5em;
+
+  .info {
+
+  }
+
+  a {
+    color: white;
+    @include linear-gradient(to top, darken(rgb(104,104,104), 20%), rgb(104,104,104));
+    width: 20px;
+    padding: 0.5em;
+
+    &:hover {
+      @include linear-gradient(to top, darken($lime-green, 25%), $lime-green);
+    }
+  }
+
+  .current {
+    color: $red;
+
+    @include linear-gradient(to top, darken($lime-green, 25%), $lime-green);
+    width: 20px;
+    padding: 0.5em;
+  }
+}

@@ -1,0 +1,1 @@
+@show.episodes.order_by(identifier: :asc).to_json

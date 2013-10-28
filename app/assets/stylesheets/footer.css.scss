@@ -1,0 +1,12 @@
+.footer {
+  clear: both;
+  border-top: 1px solid #BFBBBB;
+  z-index: 10;
+  height: 3em;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+  p { color: #BFBBBB; }
+  a { color: $dark-blue; }
+}
