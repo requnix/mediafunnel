@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
 
       flash[:notice] = "You have successfully logged in."
-      redirect_to shows_path
+      redirect_to releases_path
     else
       flash[:alert] = "Those credentials were incorrect."
       redirect_to root_path

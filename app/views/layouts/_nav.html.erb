@@ -2,9 +2,9 @@
   <ul class="menu menu-bar">
     <span class="logo"><a href="/"><span>MediaFunnel</span></a></span>
     <li ><%= link_to 'Home', root_path %></li>
-    <li ><%= link_to 'Shows', shows_path %></li>
     <li ><%= link_to 'Releases', releases_path %></li>
     <li ><%= link_to 'Subscriptions', subscriptions_path %></li>
+    <li ><%= link_to 'Shows', shows_path %></li>
 
     <%- if @user -%>
       <li class="pull-right"><%= link_to 'Logout', sign_out_users_path %></li>
