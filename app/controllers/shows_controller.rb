@@ -2,16 +2,18 @@ class ShowsController < ApplicationController
   before_filter :create_guest_user
 
   def index
-    @shows = Show.paginate(page: params[:page], per_page: 18)
-    @shows = Show.where(genres: params[:genre]).paginate(page: params[:page], per_page: 18) if params[:genre].present?
+    @shows = Release.where(releasable_type: 'Episode').map(&:releasable).map(&:show).uniq
+    if params[:genre].present?
+      @shows = @shows.select { |show| show.genres.include? params[:genre] }
+    end
 
     @genres = []
 
     Show.each do |show|
-      @genres << show.genres
+      @genres |= show.genres
     end
 
-    @genres = @genres.collect(&:first).uniq.reject(&:empty?).sort.insert(0, ["All", ""])
+    @genres = @genres.sort.insert 0, ['All', '']
   end
 
   def show
