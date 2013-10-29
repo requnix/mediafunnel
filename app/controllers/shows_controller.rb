@@ -13,7 +13,8 @@ class ShowsController < ApplicationController
       @genres |= show.genres
     end
 
-    @genres = @genres.sort.insert 0, ['All', '']
+    @genres = @genres.sort
+    @genres[0] = ['All', '']
   end
 
   def show
