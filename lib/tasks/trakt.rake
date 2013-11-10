@@ -4,7 +4,7 @@ namespace :trakt do
   task calendar: [:environment] do
     trakt = Trakt.new
     trakt.apikey = ENV['trakt_apikey'] || 'd9a29b817e3633a8ded6e09c6d05711a'
-    trakt.calendar.shows(3.days.ago.strftime('%Y%m%d')).each do |date_hash|
+    trakt.calendar.shows.each do |date_hash|
       date_hash['episodes'].each do |full_hash|
         show_hash = full_hash['show']
         show = Show.find_or_initialize_by trakt: show_hash['url']

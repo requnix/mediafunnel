@@ -11,6 +11,7 @@ gem 'bson_ext'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'neat'
+gem 'simple_form'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -18,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-gem 'simple_form'
 gem 'will_paginate_mongoid'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -36,15 +36,10 @@ gem 'turbolinks'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Heroku for deployment
-gem 'heroku'
-
 # Developer Support
 gem 'pry', group: [:development, :test]
 gem 'better_errors', group: :development
+gem 'heroku', group: :development
 
 # Third-party APIs
 gem 'trakt'

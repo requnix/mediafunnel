@@ -8,7 +8,7 @@ If you simply want to use the application it can be accessed at [http://mediafun
 
 If you want to have a look at the source and see how things work you can clone the repository with `git clone git@github.com:requnix/mediafunnel.git` or [browse the code online](https://github.com/requnix/mediafunnel).
 
-If you want to run the application it is a standard Rails 3 application using [Bundler](http://gembundler.com).
+If you want to run the application it is a standard Rails 4 application using [Bundler](http://gembundler.com).
 
 ### Troubleshooting
 
